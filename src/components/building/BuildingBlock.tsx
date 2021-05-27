@@ -3,7 +3,7 @@ import {View, Text, StyleSheet} from 'react-native';
 import {formatPrice} from './adittional/service';
 import {Label} from '../labels/Label';
 import {BadgeInterface, StatusInterface} from '../../types/types';
-import {BottomAnnotation} from '../annotations/BottomAnnotation';
+import {BuildingTypes} from '../annotations/BuildingTypes';
 import {BuildingImage} from '../images/BuildingImage';
 import {styles} from './buildingStyles';
 
@@ -39,7 +39,7 @@ export const BuildingBlock: React.FC<BuildingBlockProps> = ({
         </Text>
         <View style={styles.flexRow}>
           {statuses.map((status, index) => (
-            <BottomAnnotation
+            <BuildingTypes
               index={index}
               type={status.type}
               text={status.label}

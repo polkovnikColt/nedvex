@@ -1,12 +1,24 @@
 import React from 'react';
-import {View, ScrollView, FlatList} from 'react-native';
+import {View, ScrollView, FlatList, ListRenderItem} from 'react-native';
 import {Annotation} from '../components/annotations/Annotation';
 import {BuildingBlock} from '../components/building/BuildingBlock';
 import {annotationData, buildings} from './additional/service';
-import {AbsoluteButton} from '../components/buttons/AbsoluteButton';
-import {mainScreenStyles} from './styles';
+import {MapAndFilterButtons} from '../components/buttons/MapAndFilterButtons';
+import {mainScreenStyles} from './mainScreenStyles';
+import {BuildingInterface} from '../types/types';
 
 export const MainScreen = () => {
+  const renderItem: any = (item: BuildingInterface) => (
+    <BuildingBlock
+      photo={item.photo}
+      badges={item.badges}
+      title={item.title}
+      address={item.address}
+      price={item.price}
+      statuses={item.statuses}
+    />
+  );
+
   return (
     <View style={mainScreenStyles.screen}>
       <ScrollView style={mainScreenStyles.annotationList} horizontal>
@@ -18,20 +30,8 @@ export const MainScreen = () => {
           />
         ))}
       </ScrollView>
-      <FlatList
-        data={buildings}
-        renderItem={({item}) => (
-          <BuildingBlock
-            photo={item.photo}
-            badges={item.badges}
-            title={item.title}
-            address={item.address}
-            price={item.price}
-            statuses={item.statuses}
-          />
-        )}
-      />
-      <AbsoluteButton />
+      <FlatList data={buildings} renderItem={renderItem} />
+      <MapAndFilterButtons />
     </View>
   );
 };

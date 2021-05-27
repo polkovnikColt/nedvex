@@ -4,7 +4,7 @@ import {Badge} from '../badges/Badge';
 import Map from '../../assets/annotation-icons/map.svg';
 import {absoluteButtonStyles} from './buttonsStyles';
 
-export const AbsoluteButton: React.FC = () => {
+export const MapAndFilterButtons: React.FC = () => {
   return (
     <View style={absoluteButtonStyles.container}>
       <TouchableOpacity

@@ -29,7 +29,7 @@ export const annotationStyles = StyleSheet.create({
   },
 });
 
-export const styles = StyleSheet.create({
+export const buildingTypesStyles = StyleSheet.create({
   container: {
     marginVertical: 10,
     paddingVertical: 5,
